@@ -1,7 +1,7 @@
-streamlit
-FinanceDataReader
+finance-datareader
 datetime
 pykrx
 pandas_datareader
 yfinance
 pandas
+pytz
