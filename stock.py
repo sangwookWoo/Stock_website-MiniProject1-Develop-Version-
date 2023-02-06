@@ -23,7 +23,8 @@ filePath, fileName = os.path.split(__file__)
 
 # 안녕헬로
 
-df = pd.read_csv(filePath, 'data', '상장법인목록.csv')
+df = pd.read_csv(os.path.join(filePath, 'data', '상장법인목록.csv'))
+print(df)
 name = st.text_input('종목명을 입력해주세요😊')
 if name:
     try:
