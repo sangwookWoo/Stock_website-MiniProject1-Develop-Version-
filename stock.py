@@ -22,7 +22,7 @@ from   sklearn.preprocessing import MinMaxScaler
 # with tab2:
 #     pass
 
-# 안녕
+# 안녕헬로
 
 df = pd.read_csv('data/상장법인목록.csv')
 name = st.text_input('종목명을 입력해주세요😊')
