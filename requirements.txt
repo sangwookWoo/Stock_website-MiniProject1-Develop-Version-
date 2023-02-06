@@ -1,8 +1,6 @@
 streamlit
-finance-datareader
+numpy
+pandas
 datetime
 pykrx
-pandas_datareader
-yfinance
-pandas
 pytz
