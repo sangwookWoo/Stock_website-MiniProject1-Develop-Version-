@@ -4,3 +4,4 @@ pandas
 datetime
 pykrx
 pytz
+matplotlib
