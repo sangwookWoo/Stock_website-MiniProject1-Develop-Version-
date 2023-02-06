@@ -1,0 +1,7 @@
+streamlit
+FinanceDataReader
+datetime
+pykrx
+pandas_datareader
+yfinance
+pandas
