@@ -1,11 +1,7 @@
 import streamlit as st
-import FinanceDataReader as fdr
 from datetime import datetime, timedelta
-from pykrx import stock, bond
-from pandas_datareader import data as pdr
-import yfinance as yf
+from pykrx import stock
 import pandas as pd
-from   sklearn.preprocessing import MinMaxScaler
 import os
 from pytz import timezone
 
