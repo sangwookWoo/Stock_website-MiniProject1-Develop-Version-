@@ -6,7 +6,10 @@ from pandas_datareader import data as pdr
 import yfinance as yf
 import pandas as pd
 from   sklearn.preprocessing import MinMaxScaler
+import os
+from pytz import timezone
 
+filePath, fileName = os.path.split(__file__)
 # yf.pdr_override()
 # now = datetime.now()
 # end_day = datetime(now.year, now.month, now.day)
@@ -24,7 +27,7 @@ from   sklearn.preprocessing import MinMaxScaler
 
 # 안녕헬로
 
-df = pd.read_csv('data/상장법인목록.csv')
+df = pd.read_csv(filePath, 'data', '상장법인목록.csv')
 name = st.text_input('종목명을 입력해주세요😊')
 if name:
     try:
