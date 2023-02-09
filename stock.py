@@ -31,7 +31,7 @@ def main():
     now = datetime.today()
     end_day = datetime(now.year, now.month, now.day)
     start_day = end_day - timedelta(days = 365)
-
+    
     # 사이드바 정보
     with st.sidebar:
         # 코스피 정보
@@ -42,8 +42,12 @@ def main():
     # 필요 데이터 불러오기
     base_df = pd.read_csv(os.path.join(filePath, 'data', '상장법인목록.csv'))
     
-    # 입력 받은 종목명 저장
-    stock_name = st.text_input('정확한 종목명을 입력해주세요😊', '삼성전자')
+    coll1, coll2 = st.columns([8,1])
+    with coll1:
+        # 입력 받은 종목명 저장
+        stock_name = st.text_input('정확한 종목명을 입력해주세요😊', '삼성전자')
+    with coll2:
+        st.metric('AI 추천', value = '매수')
     
     if stock_name in tuple(base_df['cooperation']):
         # 종목명으로 티커 찾기
@@ -62,6 +66,7 @@ def main():
             st.write(' ')
             
             st.dataframe(stock.get_market_fundamental(start_day, end_day, code).tail(1).T, use_container_width= True)
+        
         
         number = st.slider('거래일 기준 며칠의 정보를 조회하시겠습니까?', 0, 365, 30)
         start_day = end_day - timedelta(days = number)
@@ -84,7 +89,6 @@ def main():
             data_mae = pd.merge(maesoo, maedo, how = 'inner', on = 'index')
             data_mae.columns = ['주체','매수','매도']
             st.bar_chart(data_mae, x = '주체', y = ['매수', '매도'], use_container_width= True)
-            
             
             
     elif stock_name not in tuple(base_df['cooperation']):
